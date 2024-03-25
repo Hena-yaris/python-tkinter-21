@@ -14,6 +14,19 @@ def clearPassword_holder(e):
     if password.get()=='password':
         password.delete(0,END)
 
+    #password
+def hide():
+    openeye.config(file='closeye.png')
+    password.config(show='*')
+    eyeButton.config(command=show)
+
+def show():
+    openeye.config(file='openeye.png')
+    password.config(show='')
+    eyeButton.config(command=hide)
+
+
+
 
 #Gui part
 Login_win=Tk()
@@ -54,6 +67,40 @@ password.bind('<FocusIn>',clearPassword_holder)
 #Frame
 f1=Frame(Login_win,width=310,height=2,bg='cyan3')
 f1.place(x=650,y=240)
+
+#eye button
+openeye=PhotoImage(file="openeye.png")
+eyeButton=Button(Login_win,image=openeye,bd=0,bg='white',activebackground="white",cursor='hand2',command=hide)
+eyeButton.place(x=927,y=214)
+
+#forgot button
+resahutButton=Button(Login_win,text='Forgot password?',bd=0,bg='white',activebackground="white",cursor='hand2',font=("Microsoft Yahei UI Light",9,"bold"),fg='cyan3',activeforeground="cyan3")
+resahutButton.place(x=842,y=255)
+
+#Login Button
+LoginButton=Button(Login_win,text='Login',bd=0,width=24,activebackground="cyan3",font=('Open Sans',16,'bold'),fg='white',bg='cyan3',activeforeground="white",cursor='hand2')
+
+LoginButton.place(x=650,y=350)
+
+#or
+
+orLable=Label(Login_win,text='---------------------OR-------------------',font=('Open Sans',16,'bold'),fg='cyan3',bg='white')
+
+orLable.place(x=650,y=410)
+
+#logo
+fb_logo=PhotoImage(file='facebook.png')
+fbLabel=Label(Login_win,image=fb_logo,bg='white')
+fbLabel.place(x=680,y=460)
+
+go2_logo=PhotoImage(file='google.png')
+goLabel=Label(Login_win,image=go2_logo,bg='white')
+goLabel.place(x=800,y=460)
+
+
+twi_logo=PhotoImage(file='twitter.png')
+twLabel=Label(Login_win,image=twi_logo,bg='white')
+twLabel.place(x=900,y=460)
 
 
 
